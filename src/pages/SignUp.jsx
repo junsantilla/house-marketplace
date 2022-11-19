@@ -10,6 +10,7 @@ import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase.config.js";
 import { ReactComponent as ArrowRightIcon } from "../assets/svg/keyboardArrowRightIcon.svg";
 import visibilityIcon from "../assets/svg/visibilityIcon.svg";
+import { toast } from "react-toastify";
 
 function SignUp() {
 	const [showPassword, setShowPassword] = useState(false);
@@ -53,7 +54,7 @@ function SignUp() {
 
 			navigate("/");
 		} catch (error) {
-			console.log(error);
+			toast.error("Somethink went wrong.");
 		}
 	};
 
