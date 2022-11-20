@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import PrivateRoute from "./components/PrivateRoute.jsx";
 import Explore from "./pages/Explore.jsx";
 import ForgotPassword from "./pages/ForgotPassword.jsx";
 import Offers from "./pages/Offers.jsx";
@@ -16,7 +17,9 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Explore />}></Route>
 					<Route path="/offers" element={<Offers />}></Route>
-					<Route path="/profile" element={<Profile />}></Route>
+					<Route path="/profile" element={<PrivateRoute />}>
+						<Route path="/profile" element={<Profile />}></Route>
+					</Route>
 					<Route path="/sign-in" element={<SignIn />}></Route>
 					<Route path="/sign-up" element={<SignUp />}></Route>
 					<Route path="/profile" element={<Profile />}></Route>

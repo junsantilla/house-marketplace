@@ -1,10 +1,9 @@
 import React from "react";
-import { getAuth, getMultiFactorResolver, updateProfile } from "firebase/auth";
+import { getAuth, updateProfile } from "firebase/auth";
 import { updateDoc, doc } from "firebase/firestore";
 import { db } from "../firebase.config";
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import { async } from "@firebase/util";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 function Profile() {
