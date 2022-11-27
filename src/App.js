@@ -10,6 +10,7 @@ import Navbar from "./components/Navbar.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Category from "./pages/Category.jsx";
+import CreateListing from "./pages/CreateListing.jsx";
 
 function App() {
 	return (
@@ -28,6 +29,10 @@ function App() {
 					<Route path="/sign-in" element={<SignIn />}></Route>
 					<Route path="/sign-up" element={<SignUp />}></Route>
 					<Route path="/profile" element={<Profile />}></Route>
+					<Route
+						path="/create-listing"
+						element={<CreateListing />}
+					></Route>
 					<Route
 						path="/forgot-password"
 						element={<ForgotPassword />}
