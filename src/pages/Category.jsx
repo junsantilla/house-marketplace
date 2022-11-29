@@ -13,6 +13,7 @@ import {
 import { db } from "../firebase.config";
 import { toast } from "react-toastify";
 import ListingItem from "../components/ListingItem";
+import Spinner from "../components/Spinner";
 
 function Category() {
 	const [listings, setListings] = useState(null);
@@ -67,7 +68,7 @@ function Category() {
 			</header>
 
 			{loading ? (
-				"Loading..."
+				<Spinner />
 			) : listings && listings.length > 0 ? (
 				<>
 					<main>

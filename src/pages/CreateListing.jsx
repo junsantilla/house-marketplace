@@ -12,6 +12,7 @@ import { db } from "../firebase.config";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { v4 as uuidv4 } from "uuid";
+import Spinner from "../components/Spinner";
 
 function CreateListing() {
 	const [geolocationEnabled, setGeolocationEnabled] = useState(false);
@@ -69,12 +70,10 @@ function CreateListing() {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [isMounted]);
 
-	if (loading) {
-		return "Loading...";
-	}
-
 	const onSubmit = async (e) => {
 		e.preventDefault();
+
+		setLoading(true);
 
 		if (discountedPrice >= regularPrice) {
 			setLoading(false);
@@ -169,6 +168,7 @@ function CreateListing() {
 			return;
 		});
 
+		// Save listing to firestore
 		const formDataCopy = {
 			...formData,
 			imgUrls,
@@ -213,6 +213,10 @@ function CreateListing() {
 			}));
 		}
 	};
+
+	if (loading) {
+		return <Spinner />;
+	}
 
 	return (
 		<div className="profile">
