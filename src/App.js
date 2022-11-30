@@ -12,6 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Category from "./pages/Category.jsx";
 import CreateListing from "./pages/CreateListing.jsx";
 import Listing from "./pages/Listing.jsx";
+import Contact from "./pages/Contact.jsx";
 
 function App() {
 	return (
@@ -41,6 +42,10 @@ function App() {
 					<Route
 						path="/category/:categoryName/:listingId"
 						element={<Listing />}
+					></Route>
+					<Route
+						path="/contact/:landlordId"
+						element={<Contact />}
 					></Route>
 				</Routes>
 				<Navbar />

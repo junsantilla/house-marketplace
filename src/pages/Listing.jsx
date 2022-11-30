@@ -70,6 +70,16 @@ function Listing() {
 					<li>{listing.parking && "Parking Spot"}</li>
 					<li>{listing.furnished && "Furnished"}</li>
 				</ul>
+
+				{/* Contact landlord */}
+				{auth.currentUser?.uid !== listing.userRef && (
+					<Link
+						to={`/contact/${listing.userRef}?listingName=${listing.name}`}
+						className="primaryButton"
+					>
+						Contact Landlord
+					</Link>
+				)}
 			</div>
 		</main>
 	);
