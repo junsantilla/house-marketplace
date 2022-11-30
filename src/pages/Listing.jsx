@@ -1,10 +1,15 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.css";
 import { getDoc, doc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { db } from "../firebase.config";
 import Spinner from "../components/Spinner";
 import shareIcon from "../assets/svg/shareIcon.svg";
+
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 function Listing() {
 	const [listing, setListing] = useState(null);
@@ -34,6 +39,23 @@ function Listing() {
 
 	return (
 		<main>
+			<Swiper pagination={{ clickable: true }}>
+				{listing.imgUrls.map((url, index) => (
+					<SwiperSlide key={index}>
+						<div
+							style={{
+								background: `url(${listing.imgUrls[index]}) no-repeat`,
+								height: "100%",
+								backgroundSize: "cover",
+								backgroundPosition: "center center",
+							}}
+						></div>
+					</SwiperSlide>
+				))}
+			</Swiper>
+
+			{/* Swiper not working on </React.StrictMode> */}
+
 			<div className="listingDetails">
 				<p className="listingName">
 					{listing.name} - $
