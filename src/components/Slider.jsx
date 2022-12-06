@@ -51,7 +51,7 @@ function Slider() {
 	return (
 		listings && (
 			<>
-				<p className="exploreHeading">Recommended</p>
+				<p className="mt-10 mb-5 font-bold text-xl">Recommended</p>
 
 				<Swiper slidesPerView={1} pagination={{ clickable: true }}>
 					{listings.map(({ data, id }) => (

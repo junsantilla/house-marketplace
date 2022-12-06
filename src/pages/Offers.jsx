@@ -95,9 +95,9 @@ function Offers() {
 	};
 
 	return (
-		<div className="category">
+		<div className="p-10 mb-16 max-w-5xl mx-auto">
 			<header>
-				<p className="pageHeader">Offers</p>
+				<p className="text-3xl font-bold mb-5">Offers</p>
 			</header>
 
 			{loading ? (
@@ -116,12 +116,13 @@ function Offers() {
 						</ul>
 					</main>
 
-					<br />
-					<br />
 					{lastFetchedListing && (
-						<p className="loadMore" onClick={onFetchMoreListings}>
+						<button
+							className="btn btn-sm"
+							onClick={onFetchMoreListings}
+						>
 							Load More
-						</p>
+						</button>
 					)}
 				</>
 			) : (

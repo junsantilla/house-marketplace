@@ -1,12 +1,8 @@
 import { Link } from "react-router-dom";
-import { ReactComponent as DeleteIcon } from "../assets/svg/deleteIcon.svg";
-import { ReactComponent as EditIcon } from "../assets/svg/editIcon.svg";
-import bedIcon from "../assets/svg/bedIcon.svg";
-import bathtubIcon from "../assets/svg/bathtubIcon.svg";
 
 function ListingItem({ listing, id, onEdit, onDelete }) {
 	return (
-		<li className="categoryListing">
+		<li className="flex bg-white mb-4 border hover:bg-base-200">
 			<Link
 				to={`/category/${listing.type}/${id}`}
 				className="categoryListingLink"
@@ -14,13 +10,11 @@ function ListingItem({ listing, id, onEdit, onDelete }) {
 				<img
 					src={listing.imgUrls[0]}
 					alt={listing.name}
-					className="categoryListingImg"
+					className=" w-60 object-cover h-40 "
 				/>
-				<div className="categoryListingDetails">
-					<p className="categoryListingLocation">
-						{listing.location}
-					</p>
-					<p className="categoryListingName">{listing.name}</p>
+				<div className="p-5 grow">
+					<p className="text-sm">{listing.location}</p>
+					<p className="font-bold text-lg">{listing.name}</p>
 
 					<p className="categoryListingPrice">
 						$
@@ -33,15 +27,14 @@ function ListingItem({ listing, id, onEdit, onDelete }) {
 									.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
 						{listing.type === "rent" && " / Month"}
 					</p>
-					<div className="categoryListingInfoDiv">
-						<img src={bedIcon} alt="bed" />
-						<p className="categoryListingInfoText">
+					<div className="flex">
+						<p className="mr-5">
 							{listing.bedrooms > 1
 								? `${listing.bedrooms} Bedrooms`
 								: "1 Bedroom"}
 						</p>
-						<img src={bathtubIcon} alt="bath" />
-						<p className="categoryListingInfoText">
+
+						<p className="">
 							{listing.bathrooms > 1
 								? `${listing.bathrooms} Bathrooms`
 								: "1 Bathroom"}
@@ -50,17 +43,25 @@ function ListingItem({ listing, id, onEdit, onDelete }) {
 				</div>
 			</Link>
 
-			{onDelete && (
-				<DeleteIcon
-					className="removeIcon"
-					fill="rgb(231, 76,60)"
-					onClick={() => onDelete(listing.id, listing.name)}
-				/>
-			)}
+			<div className="p-5 flex">
+				{onEdit && (
+					<button
+						className="btn btn-xs mr-2"
+						onClick={() => onEdit(id)}
+					>
+						Edit
+					</button>
+				)}
 
-			{onEdit && (
-				<EditIcon className="editIcon" onClick={() => onEdit(id)} />
-			)}
+				{onDelete && (
+					<button
+						className="btn btn-xs"
+						onClick={() => onDelete(listing.id, listing.name)}
+					>
+						Delete
+					</button>
+				)}
+			</div>
 		</li>
 	);
 }

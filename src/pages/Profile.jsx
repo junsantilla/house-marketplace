@@ -15,8 +15,6 @@ import { db } from "../firebase.config";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import ListingItem from "../components/ListingItem";
-import arrowRight from "../assets/svg/keyboardArrowRightIcon.svg";
-import homeIcon from "../assets/svg/homeIcon.svg";
 
 function Profile() {
 	const auth = getAuth();
@@ -106,17 +104,17 @@ function Profile() {
 	const onEdit = (listingId) => navigate(`/edit-listing/${listingId}`);
 
 	return (
-		<div className="profile">
-			<header className="profileHeader">
-				<p className="pageHeader">My Profile</p>
-				<button type="button" className="logOut" onClick={onLogout}>
+		<div className="p-10 mb-16 max-w-5xl mx-auto">
+			<header className="flex items-center">
+				<p className="text-3xl font-bold mr-3">My Profile</p>
+				<button type="button" className="btn btn-xs" onClick={onLogout}>
 					Logout
 				</button>
 			</header>
 
 			<main>
-				<div className="profileDetailsHeader">
-					<p className="profileDetailsText">Personal Details</p>
+				<div className="mt-10 mb-5 flex items-center">
+					<p className=" font-bold text-xl mr-3">Personal Details</p>
 					<p
 						className="changePersonalDetails"
 						onClick={() => {
@@ -124,7 +122,7 @@ function Profile() {
 							setChangeDetails((prevState) => !prevState);
 						}}
 					>
-						{changeDetails ? "done" : "change"}
+						{changeDetails ? "done" : "Edit"}
 					</p>
 				</div>
 
@@ -157,15 +155,16 @@ function Profile() {
 					</form>
 				</div>
 
-				<Link to="/create-listing" className="createListing">
-					<img src={homeIcon} alt="home" />
-					<p>Sell or rent your home</p>
-					<img src={arrowRight} alt="arrow right" />
-				</Link>
-
 				{!loading && listings?.length > 0 && (
 					<>
-						<p className="listingText">Your Listings</p>
+						<div className="flex justify-between mt-10 mb-5 ">
+							<p className="font-bold text-xl">My Listings</p>
+							<Link to="/create-listing">
+								<button className="btn btn-sm">
+									Add listing
+								</button>
+							</Link>
+						</div>
 						<ul className="listingsList">
 							{listings.map((listing) => (
 								<ListingItem

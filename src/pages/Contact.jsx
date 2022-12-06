@@ -30,9 +30,9 @@ function Contact() {
 	const onChange = (e) => setMessage(e.target.value);
 
 	return (
-		<div className="pageContainer">
+		<div className="p-10">
 			<header>
-				<p className="pageHeader">Contact Landlord</p>
+				<p className="text-3xl font-bold mb-5">Contact Landlord</p>
 			</header>
 
 			{landlord !== null && (

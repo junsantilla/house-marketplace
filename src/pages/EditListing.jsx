@@ -254,21 +254,21 @@ function EditListing() {
 	}
 
 	return (
-		<div className="profile">
+		<div className="p-10 mb-16 max-w-5xl mx-auto">
 			<header>
-				<p className="pageHeader">Edit Listing</p>
+				<p className="text-3xl font-bold mb-5">Create a Listing</p>
 			</header>
 
 			<main>
 				<form onSubmit={onSubmit}>
 					<label className="formLabel">Sell / Rent</label>
-					<div className="formButtons">
+					<div className="flex pt-2">
 						<button
 							type="button"
 							className={
 								type === "sale"
-									? "formButtonActive"
-									: "formButton"
+									? "btn btn-active mr-2"
+									: "btn btn-active btn-ghost mr-2"
 							}
 							id="type"
 							value="sale"
@@ -280,8 +280,8 @@ function EditListing() {
 							type="button"
 							className={
 								type === "rent"
-									? "formButtonActive"
-									: "formButton"
+									? "btn btn-active"
+									: "btn btn-active btn-ghost"
 							}
 							id="type"
 							value="rent"
@@ -332,11 +332,13 @@ function EditListing() {
 						</div>
 					</div>
 
-					<label className="formLabel">Parking spot</label>
+					<label className="formLabel mb-2">Parking spot</label>
 					<div className="formButtons">
 						<button
 							className={
-								parking ? "formButtonActive" : "formButton"
+								parking
+									? "btn btn-active mr-2"
+									: "btn btn-active btn-ghost mr-2"
 							}
 							type="button"
 							id="parking"
@@ -350,8 +352,8 @@ function EditListing() {
 						<button
 							className={
 								!parking && parking !== null
-									? "formButtonActive"
-									: "formButton"
+									? "btn btn-active mr-2"
+									: "btn btn-active btn-ghost mr-2"
 							}
 							type="button"
 							id="parking"
@@ -362,11 +364,13 @@ function EditListing() {
 						</button>
 					</div>
 
-					<label className="formLabel">Furnished</label>
+					<label className="formLabel mb-2">Furnished</label>
 					<div className="formButtons">
 						<button
 							className={
-								furnished ? "formButtonActive" : "formButton"
+								furnished
+									? "btn btn-active mr-2"
+									: "btn btn-active btn-ghost mr-2"
 							}
 							type="button"
 							id="furnished"
@@ -378,8 +382,8 @@ function EditListing() {
 						<button
 							className={
 								!furnished && furnished !== null
-									? "formButtonActive"
-									: "formButton"
+									? "btn btn-active mr-2"
+									: "btn btn-active btn-ghost mr-2"
 							}
 							type="button"
 							id="furnished"
@@ -427,11 +431,13 @@ function EditListing() {
 						</div>
 					)}
 
-					<label className="formLabel">Offer</label>
+					<label className="formLabel mb-2">Offer</label>
 					<div className="formButtons">
 						<button
 							className={
-								offer ? "formButtonActive" : "formButton"
+								offer
+									? "btn btn-active mr-2"
+									: "btn btn-active btn-ghost mr-2"
 							}
 							type="button"
 							id="offer"
@@ -443,8 +449,8 @@ function EditListing() {
 						<button
 							className={
 								!offer && offer !== null
-									? "formButtonActive"
-									: "formButton"
+									? "btn btn-active mr-2"
+									: "btn btn-active btn-ghost mr-2"
 							}
 							type="button"
 							id="offer"
@@ -490,12 +496,12 @@ function EditListing() {
 						</>
 					)}
 
-					<label className="formLabel">Images</label>
+					<label className="formLabel mb-2">Images</label>
 					<p className="imagesInfo">
 						The first image will be the cover (max 6).
 					</p>
 					<input
-						className="formInputFile"
+						className=""
 						type="file"
 						id="images"
 						onChange={onMutate}
@@ -504,11 +510,8 @@ function EditListing() {
 						multiple
 						required
 					/>
-					<button
-						type="submit"
-						className="primaryButton createListingButton"
-					>
-						Edit Listing
+					<button type="submit" className="btn mt-10 block">
+						Create Listing
 					</button>
 				</form>
 			</main>

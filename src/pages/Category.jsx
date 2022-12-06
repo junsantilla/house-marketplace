@@ -98,9 +98,9 @@ function Category() {
 	};
 
 	return (
-		<div className="category">
+		<div className="p-10 mb-16 max-w-5xl mx-auto">
 			<header>
-				<p className="pageHeader">
+				<p className="text-3xl font-bold mb-5">
 					{params.categoryName === "rent"
 						? "Places for rent"
 						: "Places for sale"}
@@ -123,12 +123,13 @@ function Category() {
 						</ul>
 					</main>
 
-					<br />
-					<br />
 					{lastFetchedListing && (
-						<p className="loadMore" onClick={onFetchMoreListings}>
+						<button
+							className="btn btn-sm"
+							onClick={onFetchMoreListings}
+						>
 							Load More
-						</p>
+						</button>
 					)}
 				</>
 			) : (

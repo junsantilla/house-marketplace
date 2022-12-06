@@ -7,7 +7,6 @@ import { getDoc, doc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { db } from "../firebase.config";
 import Spinner from "../components/Spinner";
-import shareIcon from "../assets/svg/shareIcon.svg";
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
@@ -56,8 +55,8 @@ function Listing() {
 
 			{/* Swiper not working on </React.StrictMode> */}
 
-			<div className="listingDetails">
-				<p className="listingName">
+			<div className="p-10 mb-16 max-w-5xl mx-auto">
+				<p className="font-bold text-xl">
 					{listing.name} - $
 					{listing.offer
 						? listing.discountedPrice
@@ -97,7 +96,7 @@ function Listing() {
 				{auth.currentUser?.uid !== listing.userRef && (
 					<Link
 						to={`/contact/${listing.userRef}?listingName=${listing.name}`}
-						className="primaryButton"
+						className="btn my-5"
 					>
 						Contact Landlord
 					</Link>
