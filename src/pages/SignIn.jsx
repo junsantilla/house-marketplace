@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 
 function SignIn() {
 	const [showPassword, setShowPassword] = useState(false);
-	const [formData, setFormDaata] = useState({
+	const [formData, setFormData] = useState({
 		email: "",
 		password: "",
 	});
@@ -18,7 +18,7 @@ function SignIn() {
 	const navigate = useNavigate();
 
 	const onChange = (e) => {
-		setFormDaata((prevState) => ({
+		setFormData((prevState) => ({
 			...prevState,
 			[e.target.id]: e.target.value,
 		}));
